@@ -25,10 +25,9 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": {
-              "start": "[ -f src/aws-exports.js ] && mv src/aws-exports.js src/aws-exports.ts || ng serve; ng serve",
-              "build": "[ -f src/aws-exports.js ] && mv src/aws-exports.js src/aws-exports.ts || ng build --prod; ng build --prod"
-            },
+            "scripts": [
+
+            ],
           },
           "configurations": {
             "production": {
