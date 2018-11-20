@@ -1,0 +1,9 @@
+{
+    "bucketName": "memepin-images",
+    "authPolicyName": "s3_amplify_52672dae",
+    "unauthPolicyName": "s3_amplify_52672dae",
+    "authRoleName": "memepin-20181119210320-authRole",
+    "unauthRoleName": "memepin-20181119210320-unauthRole",
+    "authPermissions": "rw",
+    "unauthPermissions": ""
+}

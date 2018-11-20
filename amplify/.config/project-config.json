@@ -1,0 +1,20 @@
+{
+    "projectName": "memepin",
+    "projectPath": "/Users/kody/kodeden/memepin",
+    "defaultEditor": "sublime",
+    "frontendHandler": {
+        "javascript": "/Users/kody/.nvm/versions/node/v10.6.0/lib/node_modules/@aws-amplify/cli/node_modules/amplify-frontend-javascript"
+    },
+    "javascript": {
+        "framework": "angular",
+        "config": {
+            "SourceDir": "src",
+            "DistributionDir": "dist",
+            "BuildCommand": "npm run-script build",
+            "StartCommand": "ng serve"
+        }
+    },
+    "providers": {
+        "awscloudformation": "/Users/kody/.nvm/versions/node/v10.6.0/lib/node_modules/@aws-amplify/cli/node_modules/amplify-provider-awscloudformation"
+    }
+}
