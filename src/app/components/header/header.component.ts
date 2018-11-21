@@ -17,6 +17,8 @@ export class HeaderComponent implements OnInit {
   submitted: boolean = false;
   showCode: boolean = false;
   username = '';
+  loggedIn = false;
+
 
   constructor(
     private modalService: BsModalService,
@@ -27,6 +29,13 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.buildForm();
+    Auth.currentAuthenticatedUser()
+      .then(user2 => {
+        console.log(user2);
+        if (user2) {
+            this.loggedIn = true;
+        }
+      }).catch(err => console.log(err));
   }
 
   get f() { return this.authSUForm.controls; }
@@ -80,8 +89,10 @@ export class HeaderComponent implements OnInit {
     if (this.codeForm.invalid) { return null; }
     console.log(this.codeForm.value);
     Auth.confirmSignUp(this.username, this.codeForm.value['code'])
-      .then(data => console.log(data))
-      .catch(err => console.log(err));
+      .then(data => {
+        console.log(data);
+        this.modalRef.hide();
+    }).catch(err => console.log(err));
   }
 
   onSubmitLogin() {
@@ -90,7 +101,11 @@ export class HeaderComponent implements OnInit {
       .then(user => {
         console.log(user);
         Auth.currentAuthenticatedUser()
-          .then(user2 => console.log(user2))
+          .then(user2 => {
+            this.loggedIn = true;
+            console.log(user2);
+            this.modalRef.hide();
+          })
           .catch(err => console.log(err));
       })
       .catch(err => console.log(err));
@@ -101,9 +116,7 @@ export class HeaderComponent implements OnInit {
     Auth.signOut()
       .then(data => {
         console.log(data);
-        Auth.currentAuthenticatedUser()
-          .then(user2 => console.log(user2))
-          .catch(err => console.log(err));
+        this.loggedIn = false;
     }).catch(err => console.log(err));
   }
 

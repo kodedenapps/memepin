@@ -5,11 +5,10 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">New Meme</a>
-      <a class="nav-item nav-link" (click)="openModal(templateLogin)">Sign In</a>
-      <a class="nav-item nav-link" (click)="openModal(template)">Sign Up</a>
-      <a class="nav-item nav-link" (click)="signOut()">Sign Out</a>
+      <a *ngIf="loggedIn" class="nav-item nav-link active" (click)="openModal(templateNewMeme)" >New Meme</a>
+      <a *ngIf="!loggedIn" class="nav-item nav-link" (click)="openModal(templateLogin)">Sign In</a>
+      <a *ngIf="!loggedIn" class="nav-item nav-link" (click)="openModal(template)">Sign Up</a>
+      <a *ngIf="loggedIn" class="nav-item nav-link" (click)="signOut()">Sign Out</a>
     </div>
   </div>
 </nav>
@@ -75,6 +74,49 @@
     </div>
 
 
+  </div>
+</ng-template>
+
+
+
+<ng-template #templateNewMeme>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">New Meme</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <!--<form [formGroup]="authSUForm" (ngSubmit)="onSubmitLogin()">-->
+      <!--<div class="form-group">-->
+        <!--<label for="email">Email</label>-->
+        <!--<input-->
+          <!--type="text"-->
+          <!--id="email"-->
+          <!--class="form-control"-->
+          <!--formControlName="email"-->
+          <!--placeholder="Email"-->
+          <!--[ngClass]="{ 'is-invalid':submitted && f.email.errors }" />-->
+        <!--<div *ngIf="submitted && f.email.errors" class="invalid-feedback">-->
+          <!--<div *ngIf="f.email.errors.required">Email is required</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="form-group">-->
+        <!--<label for="password">Password</label>-->
+        <!--<input-->
+          <!--type="text"-->
+          <!--id="password"-->
+          <!--class="form-control"-->
+          <!--formControlName="password"-->
+          <!--placeholder="Password"-->
+          <!--[ngClass]="{ 'is-invalid':submitted && f.password.errors }" />-->
+        <!--<div *ngIf="submitted && f.password.errors" class="invalid-feedback">-->
+          <!--<div *ngIf="f.password.errors.required">Password is required and greater than 8 characters.</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<button (click)="modalRef.hide()" class="btn btn-danger">Cancel</button>-->
+      <!--<button class="btn btn-primary ml-2" type="submit">Login</button>-->
+    <!--</form>-->
   </div>
 </ng-template>
 
