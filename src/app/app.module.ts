@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { MapComponent } from './components/map/map.component';
 import { AuthComponent } from './components/auth/auth.component';
 import { HeaderComponent } from './components/header/header.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,10 @@ import { HeaderComponent } from './components/header/header.component';
   ],
   imports: [
     BrowserModule,
-    AmplifyAngularModule
+    AmplifyAngularModule,
+    ModalModule.forRoot(),
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [AmplifyService],
   bootstrap: [AppComponent]
