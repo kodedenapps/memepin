@@ -87,36 +87,19 @@
     </button>
   </div>
   <div class="modal-body">
-    <!--<form [formGroup]="authSUForm" (ngSubmit)="onSubmitLogin()">-->
-      <!--<div class="form-group">-->
-        <!--<label for="email">Email</label>-->
-        <!--<input-->
-          <!--type="text"-->
-          <!--id="email"-->
-          <!--class="form-control"-->
-          <!--formControlName="email"-->
-          <!--placeholder="Email"-->
-          <!--[ngClass]="{ 'is-invalid':submitted && f.email.errors }" />-->
-        <!--<div *ngIf="submitted && f.email.errors" class="invalid-feedback">-->
-          <!--<div *ngIf="f.email.errors.required">Email is required</div>-->
-        <!--</div>-->
-      <!--</div>-->
-      <!--<div class="form-group">-->
-        <!--<label for="password">Password</label>-->
-        <!--<input-->
-          <!--type="text"-->
-          <!--id="password"-->
-          <!--class="form-control"-->
-          <!--formControlName="password"-->
-          <!--placeholder="Password"-->
-          <!--[ngClass]="{ 'is-invalid':submitted && f.password.errors }" />-->
-        <!--<div *ngIf="submitted && f.password.errors" class="invalid-feedback">-->
-          <!--<div *ngIf="f.password.errors.required">Password is required and greater than 8 characters.</div>-->
-        <!--</div>-->
-      <!--</div>-->
+    <form>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="file"
+          id="file"
+          class="form-control"
+          placeholder="File" (change)="sendFile($event)" />
+      </div>
+
       <!--<button (click)="modalRef.hide()" class="btn btn-danger">Cancel</button>-->
       <!--<button class="btn btn-primary ml-2" type="submit">Login</button>-->
-    <!--</form>-->
+    </form>
   </div>
 </ng-template>
 

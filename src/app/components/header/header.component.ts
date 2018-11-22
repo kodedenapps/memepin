@@ -2,7 +2,7 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Auth } from 'aws-amplify';
+import { Auth, Storage } from 'aws-amplify';
 
 
 @Component({
@@ -60,6 +60,16 @@ export class HeaderComponent implements OnInit {
     this.codeForm = this.formBuilder.group({
       code: ['', Validators.required],
     });
+  }
+
+  sendFile(e) {
+    const file = e.target.files[0];
+    console.log('FILE: ', file);
+    Storage.put(file.name, file, {
+      contentType: file.type
+    })
+      .then (result => console.log(result))
+      .catch(err => console.log(err));
   }
 
   onSubmit() {
